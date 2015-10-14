@@ -1,0 +1,30 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<div class="posts">
+        <section class="post">
+            <header class="post-header">
+                <!--<h2 class="post-title">{{ post.title }}</h2>-->
+                <h2 class="post-title"><a href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
+
+                    <p class="post-meta">
+                    	 <!--Time:  <a class="post-author" href="#">{{ post.date_time |date:"Y M d"}}</a> <a class="post-category post-category-js" href="{% url "search_tag" tag=post.category %}">{{ post.category|title }}</a>-->
+		                 <span class="entry-tags">        
+		                        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> 
+		                          {% for i in article.get_tags %}
+		                               <a href="{{ i.get_absolute_url }}" rel="tag"> {{i}}</a>
+		                          {% endfor %}
+		                </span>
+                    </p>
+            </header>
+
+                <div class="post-description">
+                    <p>
+                        {{ post.content }}
+                    </p>
+                </div>
+                <!--<a class="pure-button" href="{% url "detail" id=post.id %}">Read More >>> </a>-->
+        </section>
+        {% include "duoshuo.html" %}
+</div><!-- /.blog-post -->
+{% endblock %}

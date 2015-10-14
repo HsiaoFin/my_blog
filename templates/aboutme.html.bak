@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<div class="posts">
+        <p> About Me </p>
+        <p> 这是我的小小世界 </p>
+        <p> By Aeolus </p>
+</div><!-- /.blog-post -->
+{% endblock %}
